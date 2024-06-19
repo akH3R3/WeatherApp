@@ -4,6 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_app/ui/build_flavor.dart';
+import 'package:weather_app/ui/screens/boarding_screens.dart';
+import 'package:weather_app/ui/screens/splash_screen.dart';
 import 'package:weather_app/ui/screens/weather_screen.dart';
 import 'package:weather_app/ui/state_notifiers/theme_state_notifier.dart' as t;
 import 'package:weather_app/ui/state_notifiers/theme_state_notifier.dart';
@@ -11,7 +13,6 @@ import 'package:weather_app/ui/themes/black_theme.dart';
 import 'package:weather_app/ui/themes/clima_theme.dart';
 import 'package:weather_app/ui/themes/dark_theme.dart';
 import 'package:weather_app/ui/themes/light_theme.dart';
-
 import 'data/models/dark_theme_model.dart';
 import 'data/models/theme_model.dart';
 import 'data/provider.dart';
@@ -102,7 +103,8 @@ class _App extends HookConsumerWidget {
 
           return builder?.call(context, child) ?? child;
         },
-        home: const WeatherScreen(),
+        debugShowCheckedModeBanner: false,
+        home: const OnBoarding(),
         theme: lightTheme,
         darkTheme: {
           DarkThemeModel.black: blackTheme,

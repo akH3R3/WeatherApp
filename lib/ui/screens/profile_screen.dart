@@ -49,29 +49,79 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: Text('Profile', style: TextStyle(fontSize: 20)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             TextField(
+              style: TextStyle(
+                color: Colors.grey.shade900,
+              ),
               controller: _nameController,
-              decoration: InputDecoration(labelText: 'Name'),
+              decoration: const InputDecoration(
+                labelText: 'Name',
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black)),
+                    fillColor: Color.fromARGB(255, 239, 232, 232),
+                    filled: true,
+              ),
             ),
+            SizedBox(height:20),
             TextField(
+              style: TextStyle(
+                color: Colors.grey.shade900,
+              ),
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'Email'),
-              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black)),
+                    fillColor: Color.fromARGB(255, 239, 232, 232),
+                    filled: true,
+              ),
             ),
+            SizedBox(height:20),
             TextField(
+              style: TextStyle(
+                color: Colors.grey.shade900,
+              ),
               controller: _homeLocationController,
-              decoration: InputDecoration(labelText: 'Home Location'),
+              decoration: const InputDecoration(
+                labelText: 'Location',
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black)),
+                    fillColor: Color.fromARGB(255, 239, 232, 232),
+                    filled: true,
+              ),
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _saveProfile,
-              child: Text('Save Profile'),
+            SizedBox(height: 40),
+            GestureDetector(
+              onTap: () {
+                _saveProfile();
+              },
+              child: Container(
+                    padding: EdgeInsets.all(15),
+                    margin: EdgeInsets.symmetric(horizontal: 1),
+                    decoration: BoxDecoration(
+                        color: Colors.black, borderRadius: BorderRadius.circular(8)),
+                    child: Center(
+                        child: Text(
+                      "Save Profile",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
+                  ),
             ),
           ],
         ),
